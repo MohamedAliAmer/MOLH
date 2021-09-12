@@ -10,7 +10,7 @@ s.description  = <<-DESC
 Localization helper for iOS apps mainly focusing on the LTR/RTL issue Edit
 DESC
 
-s.homepage     = "https://github.com/MoathOthman/MOLH"
+s.homepage     = "https://github.com/MohamedAliAmer/MOLH"
 
 s.license      = { :type => "MIT", :file => "LICENSE" }
 
@@ -22,7 +22,7 @@ s.social_media_url   = "http://twitter.com/dark_torch"
 s.platform     = :ios, "9.0"
 
 
-s.source       = { :git => "https://github.com/MoathOthman/MOLH.git", :tag => "v"+s.version.to_s }
+s.source       = { :git => "https://github.com/MohamedAliAmer/MOLH", :tag => "v"+s.version.to_s }
 
 
 s.source_files  = "Sources/MOLH/*.swift"

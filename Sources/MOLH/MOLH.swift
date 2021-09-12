@@ -45,11 +45,6 @@ public protocol MOLHResetable {
     func reset()
 }
 
-@available(iOS 13.0, *)
-public protocol MOLHSceneResetable {
-    func reset(scene: UIScene)
-}
-
 open class MOLHViewController : UIViewController {
     open override func viewDidLoad() {
         super.viewDidLoad()
@@ -102,11 +97,11 @@ open class MOLH {
      * set the maximum tag where a UIView subclass Deemed Localizable
      * if view Tag property is bigger than this number  the view will not be flipped
      */
-    open var maximumLocalizableTag: Int = -1 {
-        didSet {
-            assert(maximumLocalizableTag <= -1, "Tag should be less than or equal -1 , since 0 will corrupt UIKit-Made UIs e.g. UIAlertView/Share...")
-        }
-    }
+    open var maximumLocalizableTag: Int = -1 //{
+//        didSet {
+//            assert(maximumLocalizableTag <= -1, "Tag should be less than or equal -1 , since 0 will corrupt UIKit-Made UIs e.g. UIAlertView/Share...")
+//        }
+//    }
     
     /**
      @description
@@ -185,7 +180,7 @@ open class MOLH {
                resetWhenNoScenesAvailable()
             } else {
                 for scene in UIApplication.shared.connectedScenes {
-                    (scene.delegate as? MOLHSceneResetable)?.reset(scene: scene)
+                    (scene.delegate as? MOLHResetable)?.reset()
                 }
             }
         } else {
@@ -262,9 +257,9 @@ extension UIViewController {
     
     @objc func mirroringviewDidLoad() {
         mirroringviewDidLoad()
-        if UIApplication.shared.userInterfaceLayoutDirection == .rightToLeft {
-            loopThroughSubViewAndFlipTheImageIfItsNeeded(self.view.subviews)
-        }
+//        if UIApplication.shared.userInterfaceLayoutDirection == .rightToLeft {
+//            loopThroughSubViewAndFlipTheImageIfItsNeeded(self.view.subviews)
+//        }
         // Do any additional setup after loading the view.
     }
     
