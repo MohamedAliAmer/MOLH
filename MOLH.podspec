@@ -22,7 +22,7 @@ s.social_media_url   = "http://twitter.com/dark_torch"
 s.platform     = :ios, "9.0"
 
 
-s.source       = { :git => "https://github.com/MohamedAliAmer/MOLH", :tag => "v"+s.version.to_s }
+s.source       = { :git => "https://github.com/MohamedAliAmer/MOLH.git", :tag => "v"+s.version.to_s }
 
 
 s.source_files  = "Sources/MOLH/*.swift"
